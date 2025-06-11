@@ -1,0 +1,32 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <div class="omega-logo">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets%2Fd01860d8bedc4550a34979f4406f50f9%2F1cbbada212614a5695f7798bedf852a8"
+          alt="Omega Testing Logo"
+          width="50"
+          height="40"
+        />
+      </div>
+      <span>Omega Testing</span>
+    </div>
+
+    <ul class="nav-menu" [class.active]="isMenuOpen">
+      <li>
+        <a (click)="scrollToSection('about')" class="nav-link">About Us</a>
+      </li>
+      <li><a (click)="scrollToSection('plans')" class="nav-link">Plans</a></li>
+      <li><a (click)="scrollToSection('docs')" class="nav-link">Docs</a></li>
+      <li>
+        <a (click)="scrollToSection('contact')" class="nav-link">Contact Us</a>
+      </li>
+    </ul>
+
+    <div class="hamburger" [class.active]="isMenuOpen" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>

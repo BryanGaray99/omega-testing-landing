@@ -155,11 +155,47 @@ body {
   margin: 0 auto 80px;
 }
 
-.hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
+.brand-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.brand-logo {
   margin-bottom: 24px;
-  line-height: 1.2;
+}
+
+.brand-logo svg {
+  filter: drop-shadow(0 4px 16px rgba(65, 207, 65, 0.3));
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.brand-name {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.1;
+  color: #000000;
+}
+
+.brand-slogan {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #41cf41;
+  margin-bottom: 0;
+  font-style: italic;
+  text-align: center;
 }
 
 .hero-description {
@@ -540,8 +576,17 @@ body {
     left: 0;
   }
 
-  .hero-title {
-    font-size: 2.5rem;
+  .brand-name {
+    font-size: 3rem;
+  }
+
+  .brand-slogan {
+    font-size: 1.25rem;
+  }
+
+  .brand-logo svg {
+    width: 70px;
+    height: 56px;
   }
 
   .hero-description {
@@ -581,8 +626,18 @@ body {
     padding: 0 16px;
   }
 
-  .hero-title {
-    font-size: 2rem;
+  .brand-name {
+    font-size: 2.5rem;
+  }
+
+  .brand-slogan {
+    font-size: 1.125rem;
+    padding: 0 16px;
+  }
+
+  .brand-logo svg {
+    width: 60px;
+    height: 48px;
   }
 
   .section-title {

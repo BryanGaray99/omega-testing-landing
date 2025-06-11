@@ -142,21 +142,68 @@ src/
 
 ## 🚢 Deployment
 
-### Build de producción
+### 🌐 GitHub Pages (Automático)
+
+La aplicación se despliega automáticamente a GitHub Pages cuando se hace push a la rama `main` usando GitHub Actions.
+
+**URL de la aplicación**: `https://tu-usuario.github.io/omega-testing-angular/`
+
+### 📋 Configuración inicial de GitHub Pages
+
+1. **Ve a tu repositorio en GitHub**
+2. **Settings** → **Pages**
+3. **Source**: Selecciona "GitHub Actions"
+4. El workflow se ejecutará automáticamente en cada push
+
+### 🔧 Deployment manual
+
+Si prefieres desplegar manualmente:
 
 ```bash
+# Opción 1: Script automático
+./deploy.sh
+
+# Opción 2: Comandos manuales
+npm run deploy
+```
+
+### 📦 Scripts de deployment disponibles
+
+```bash
+# Build optimizado para GitHub Pages
+npm run build:github
+
+# Deploy completo (build + upload)
+npm run deploy
+
+# Build de producción regular
 npm run build:prod
 ```
 
-Los archivos optimizados se generarán en la carpeta `dist/omega-testing/`.
+### 🛠️ Configuración del servidor (otros hosting)
 
-### Configuración del servidor
-
-Para servir la aplicación en producción, asegúrate de configurar el servidor para:
+Para otros servicios de hosting, configura el servidor para:
 
 - Servir `index.html` para todas las rutas (Angular routing)
 - Configurar headers de caché apropiados
 - Habilitar compresión gzip
+
+### 🔄 CI/CD Workflow
+
+El proyecto incluye un workflow de GitHub Actions que:
+
+1. ✅ Ejecuta tests automáticamente
+2. 🔨 Construye la aplicación para producción
+3. 🚀 Despliega a GitHub Pages
+4. 📊 Reporta el estado del deployment
+
+### 🎯 Dominios personalizados
+
+Para usar un dominio personalizado:
+
+1. Edita `src/CNAME` con tu dominio
+2. Configura DNS en tu proveedor de dominio
+3. El deployment se encargará del resto
 
 ## 📄 Licencia
 

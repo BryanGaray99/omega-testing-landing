@@ -2,18 +2,20 @@
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("active");
-});
+if (hamburger && navMenu) {
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  });
 
-// Close mobile menu when clicking on a link
-document.querySelectorAll(".nav-link").forEach((n) =>
-  n.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
-  }),
-);
+  // Close mobile menu when clicking on a link
+  document.querySelectorAll(".nav-link").forEach((n) =>
+    n.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+    }),
+  );
+}
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -33,12 +35,14 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 // Navbar background on scroll
 window.addEventListener("scroll", () => {
   const navbar = document.querySelector(".navbar");
-  if (window.scrollY > 50) {
-    navbar.style.background = "rgba(255, 255, 255, 0.98)";
-    navbar.style.boxShadow = "0 2px 20px rgba(0, 0, 0, 0.1)";
-  } else {
-    navbar.style.background = "rgba(255, 255, 255, 0.95)";
-    navbar.style.boxShadow = "none";
+  if (navbar) {
+    if (window.scrollY > 50) {
+      navbar.style.background = "rgba(255, 255, 255, 0.98)";
+      navbar.style.boxShadow = "0 2px 20px rgba(0, 0, 0, 0.1)";
+    } else {
+      navbar.style.background = "rgba(255, 255, 255, 0.95)";
+      navbar.style.boxShadow = "none";
+    }
   }
 });
 
@@ -83,41 +87,13 @@ if (contactForm) {
   });
 }
 
-// Add animation on scroll
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -50px 0px",
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = "1";
-      entry.target.style.transform = "translateY(0)";
-    }
-  });
-}, observerOptions);
-
-// Observe elements for animation
-document.addEventListener("DOMContentLoaded", () => {
-  const animatedElements = document.querySelectorAll(
-    ".benefit-card, .plan-card, .code-block, .comparison-item",
-  );
-
-  animatedElements.forEach((el) => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(30px)";
-    el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-    observer.observe(el);
-  });
-});
-
 // Plan selection handling
 document.querySelectorAll(".plan-button").forEach((button) => {
   button.addEventListener("click", function () {
     const planName = this.closest(".plan-card").querySelector("h3").textContent;
 
     // Simulate plan selection
+    const originalText = this.textContent;
     this.textContent = "Procesando...";
     this.disabled = true;
 
@@ -125,10 +101,7 @@ document.querySelectorAll(".plan-button").forEach((button) => {
       alert(
         `¡Perfecto! Has seleccionado el plan ${planName}. Te redirigiremos al proceso de pago.`,
       );
-      this.textContent = this.textContent.replace(
-        "Procesando...",
-        `Elegir ${planName}`,
-      );
+      this.textContent = originalText;
       this.disabled = false;
     }, 1500);
   });
@@ -174,8 +147,10 @@ document.querySelectorAll(".benefit-card, .plan-card").forEach((card) => {
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") {
     // Close mobile menu if open
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
+    if (hamburger && navMenu) {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+    }
   }
 });
 
@@ -211,4 +186,33 @@ window.addEventListener("scroll", () => {
   }
 });
 
-console.log("Omega Testing - Landing page loaded successfully! 🚀");
+// Initialize animations on scroll
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: "0px 0px -50px 0px",
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = "1";
+      entry.target.style.transform = "translateY(0)";
+    }
+  });
+}, observerOptions);
+
+// Observe elements for animation when DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  const animatedElements = document.querySelectorAll(
+    ".benefit-card, .plan-card, .code-block, .comparison-item",
+  );
+
+  animatedElements.forEach((el) => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(30px)";
+    el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+    observer.observe(el);
+  });
+});
+
+console.log("🚀 Omega Testing - Landing page loaded successfully!");

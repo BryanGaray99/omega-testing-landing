@@ -1,32 +1,35 @@
-const { spawn } = require("child_process");
+const express = require("express");
 const path = require("path");
 
-console.log("🚀 Starting Angular development server...");
-console.log("📦 Building and serving Omega Testing Angular app");
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-const ngServe = spawn("npm", ["run", "start"], {
-  stdio: "inherit",
-  shell: true,
-  cwd: __dirname,
+// Serve static files from current directory
+app.use(express.static("."));
+
+// Serve Angular src files
+app.use("/src", express.static("src"));
+
+// Serve node_modules for any dependencies
+app.use("/node_modules", express.static("node_modules"));
+
+// Handle Angular routing - serve index.html for any route
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "src", "index.html"));
 });
 
-ngServe.on("error", (error) => {
-  console.error("❌ Error starting Angular server:", error);
-  process.exit(1);
-});
-
-ngServe.on("close", (code) => {
-  console.log(`Angular server process exited with code ${code}`);
-  process.exit(code);
-});
-
-// Graceful shutdown
-process.on("SIGINT", () => {
-  console.log("\n👋 Shutting down Angular development server...");
-  ngServe.kill("SIGINT");
-});
-
-process.on("SIGTERM", () => {
-  console.log("\n👋 Shutting down Angular development server...");
-  ngServe.kill("SIGTERM");
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(
+    `🚀 Omega Testing development server running at http://localhost:${PORT}/`,
+  );
+  console.log(
+    "📝 Note: This is a development server. For full Angular features, install Angular CLI:",
+  );
+  console.log("   npm install -g @angular/cli");
+  console.log("   ng serve");
+  console.log("");
+  console.log("📁 Available files:");
+  console.log("   - Landing page components in /src/app/components/");
+  console.log("   - Angular configuration files");
+  console.log("   - Deployment scripts for GitHub Pages");
 });

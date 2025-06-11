@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "omega-testing": {
+    "omega-testing-landing": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,10 +13,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/omega-testing",
+            "outputPath": "dist/omega-testing-landing",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
@@ -58,13 +58,16 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "omega-testing:build:production"
+              "buildTarget": "omega-testing-landing:build:production"
             },
             "development": {
-              "buildTarget": "omega-testing:build:development"
+              "buildTarget": "omega-testing-landing:build:development"
             }
           },
           "defaultConfiguration": "development"
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }

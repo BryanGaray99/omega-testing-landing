@@ -58,18 +58,58 @@ body {
   gap: 12px;
 }
 
-.logo-icon {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #41cf41 0%, #68de68 100%);
-  border-radius: 8px;
+.omega-logo {
+  position: relative;
+  width: 50px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+}
+
+.omega-symbol {
+  font-size: 36px;
   font-weight: 900;
+  color: #41cf41;
+  position: relative;
+  z-index: 1;
+}
+
+.magnifying-glass {
+  position: absolute;
+  bottom: -2px;
+  right: -5px;
+  z-index: 2;
+}
+
+.glass-circle {
+  width: 22px;
+  height: 22px;
+  background: #41cf41;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.glass-circle i {
   color: #ffffff;
-  box-shadow: 0 2px 8px rgba(65, 207, 65, 0.3);
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.glass-handle {
+  position: absolute;
+  bottom: -3px;
+  right: -3px;
+  width: 8px;
+  height: 3px;
+  background: #41cf41;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  transform-origin: left center;
 }
 
 .nav-menu {
@@ -489,10 +529,27 @@ body {
   gap: 12px;
 }
 
-.footer-logo .logo-icon {
-  width: 36px;
-  height: 36px;
-  font-size: 20px;
+.footer-logo .omega-logo {
+  width: 45px;
+  height: 40px;
+}
+
+.footer-logo .omega-symbol {
+  font-size: 32px;
+}
+
+.footer-logo .glass-circle {
+  width: 20px;
+  height: 20px;
+}
+
+.footer-logo .glass-circle i {
+  font-size: 9px;
+}
+
+.footer-logo .glass-handle {
+  width: 7px;
+  height: 3px;
 }
 
 .footer-links {

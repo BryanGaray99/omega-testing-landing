@@ -1,0 +1,46 @@
+<section id="about" class="about-section">
+  <div class="container">
+    <div class="hero-content">
+      <div class="brand-header">
+        <div class="brand-logo">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2Fd01860d8bedc4550a34979f4406f50f9%2F1cbbada212614a5695f7798bedf852a8"
+            alt="Omega Testing Logo"
+            width="320"
+            height="256"
+          />
+        </div>
+        <h1 class="brand-name">Omega Testing</h1>
+        <p class="brand-slogan">
+          Inteligencia que prueba. Calidad que evoluciona.
+        </p>
+      </div>
+
+      <p class="hero-description">
+        Omega Testing es una plataforma que permite crear, ejecutar y mantener
+        pruebas automatizadas con ayuda de IA, reduciendo el tiempo manual y
+        aumentando la eficiencia de equipos de QA y desarrollo.
+      </p>
+
+      <div class="cta-buttons">
+        <button class="btn-primary" (click)="onStartFree()">
+          Comenzar gratis
+        </button>
+        <button class="btn-secondary" (click)="onViewDemo()">Ver demo</button>
+      </div>
+    </div>
+
+    <div class="benefits-grid">
+      <div
+        class="benefit-card"
+        *ngFor="let benefit of benefits; trackBy: trackByTitle"
+      >
+        <div class="benefit-icon">
+          <i [class]="benefit.icon"></i>
+        </div>
+        <h3>{{ benefit.title }}</h3>
+        <p>{{ benefit.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>

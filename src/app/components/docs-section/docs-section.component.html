@@ -1,0 +1,39 @@
+<section id="docs" class="docs-section">
+  <div class="container">
+    <h2 class="section-title">Empieza en minutos</h2>
+
+    <p class="docs-intro">
+      Omega Testing se integra fácilmente a tus flujos de trabajo, tanto desde
+      la interfaz web como desde terminal o pipelines.
+    </p>
+
+    <div class="docs-content">
+      <div
+        *ngFor="let example of codeExamples; trackBy: trackByTitle"
+        class="code-block"
+      >
+        <h3>{{ example.title }}</h3>
+        <pre><code>{{ example.code }}</code></pre>
+      </div>
+
+      <div class="features-comparison">
+        <h3>Planes y funciones</h3>
+        <div class="comparison-grid">
+          <div
+            *ngFor="let item of comparisonItems; trackBy: trackByPlan"
+            class="comparison-item"
+          >
+            <h4>{{ item.plan }}</h4>
+            <p>{{ item.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="docs-cta">
+        <button class="btn-primary" (click)="onViewFullDocs()">
+          Ver documentación completa
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

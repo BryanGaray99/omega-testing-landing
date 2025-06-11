@@ -1,0 +1,180 @@
+.about-section {
+  padding: 100px 0 60px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 24px;
+}
+
+.brand-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.brand-logo {
+  margin-bottom: 12px;
+}
+
+.brand-logo img {
+  filter: drop-shadow(0 4px 16px rgba(65, 207, 65, 0.3));
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+.brand-name {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 70.4px;
+  margin-bottom: 16px;
+  color: #000000;
+}
+
+.brand-slogan {
+  font-size: 24px;
+  font-weight: 500;
+  color: #41cf41;
+  margin-bottom: -12px;
+  font-style: italic;
+  text-align: center;
+}
+
+.hero-description {
+  font-size: 20px;
+  color: #666;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.benefit-card {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.benefit-card:hover {
+  transform: translateY(-8px);
+}
+
+.benefit-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.benefit-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.benefit-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.benefit-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.benefit-icon {
+  width: 64px;
+  height: 64px;
+  background: #41cf41;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.benefit-icon i {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.benefit-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.benefit-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .brand-name {
+    font-size: 40px;
+  }
+
+  .brand-slogan {
+    font-size: 18px;
+    padding: 0 16px;
+  }
+
+  .brand-logo img {
+    width: 240px;
+    height: 192px;
+  }
+
+  .hero-description {
+    font-size: 18px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    margin-top: 40px;
+  }
+
+  .brand-header {
+    margin-bottom: 16px;
+  }
+
+  .brand-logo {
+    margin-bottom: 8px;
+  }
+
+  .benefit-card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .brand-logo img {
+    width: 280px;
+    height: 224px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-name {
+    font-size: 32px;
+  }
+
+  .brand-slogan {
+    font-size: 16px;
+  }
+}

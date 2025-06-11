@@ -1,0 +1,34 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <div class="omega-logo">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2Fd01860d8bedc4550a34979f4406f50f9%2F1cbbada212614a5695f7798bedf852a8"
+            alt="Omega Testing Logo"
+            width="45"
+            height="36"
+          />
+        </div>
+        <span>Omega Testing</span>
+      </div>
+
+      <div class="footer-links">
+        <a
+          *ngFor="let social of socialLinks; trackBy: trackBySocial"
+          [href]="social.url"
+          [title]="social.name"
+          (click)="onSocialClick(social); $event.preventDefault()"
+        >
+          <i [class]="social.icon"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        &copy; {{ currentYear }} Omega Testing. Todos los derechos reservados.
+      </p>
+    </div>
+  </div>
+</footer>

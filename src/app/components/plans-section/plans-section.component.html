@@ -1,0 +1,39 @@
+<section id="plans" class="plans-section">
+  <div class="container">
+    <h2 class="section-title">Elige el plan que se adapta a tu equipo</h2>
+
+    <div class="plans-grid">
+      <div
+        *ngFor="let plan of plans; trackBy: trackByPlan"
+        class="plan-card"
+        [class.featured]="plan.featured"
+      >
+        <div *ngIf="plan.badge" class="plan-badge">{{ plan.badge }}</div>
+
+        <div class="plan-header">
+          <h3>{{ plan.name }}</h3>
+          <div class="plan-price">
+            <span class="currency">$</span>
+            <span class="amount">{{ plan.price }}</span>
+            <span *ngIf="plan.period" class="period">{{ plan.period }}</span>
+          </div>
+        </div>
+
+        <ul class="plan-features">
+          <li *ngFor="let feature of plan.features">
+            <i [class]="feature.included ? 'fas fa-check' : 'fas fa-times'"></i>
+            {{ feature.text }}
+          </li>
+        </ul>
+
+        <button
+          class="plan-button"
+          [class]="plan.featured ? 'btn-primary' : 'btn-secondary'"
+          (click)="onSelectPlan(plan)"
+        >
+          Elegir {{ plan.name }}
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

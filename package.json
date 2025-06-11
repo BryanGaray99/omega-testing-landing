@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "echo 'Dev server placeholder - configure as needed'",
+    "dev": "echo 'Project is ready! No dev server configured yet.'",
     "build": "echo 'Build placeholder - configure as needed'",
     "start": "echo 'Start placeholder - configure as needed'"
   },
